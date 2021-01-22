@@ -43,5 +43,10 @@ app.post('/api/book', (req, res) => {
   res.send('Book was added to the database.');
 });
 
+// Create a GET endpoint to retrieve all the books from the API
+app.get('/api/books', (req, res) => {
+  res.json(books);
+});
+
 // Start our client
-app.listen(port, () => console.log(`Book API listening on port ${port}`));
+app.listen(port, () => console.log(`Book API listening on port ${port}...`));

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book list | API-Book</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+      <h1>List of books</h1>
+      <hr />
+
+      <div>
+        <div class="row" id="books"></div>
+      </div>
+    </div>
+
+    <div id="editBookModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Edit Book</h2>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm" method="POST">
+              <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input id="isbn" class="form-control" name="isbn" />
+              </div>
+
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" class="form-control" name="title" />
+              </div>
+
+              <!-- Other fields go here -->
+              <div class="form-group">
+                <label for="author">Author</label>
+                <input id="author" class="form-control" name="author" />
+              </div>
+              <div class="form-group">
+                <label for="pubDate">Published Date</label>
+                <input id="pubDate" class="form-control" name="pubDate" />
+              </div>
+              <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input id="publisher" class="form-control" name="publisher" />
+              </div>
+              <div class="form-group">
+                <label for="numPages">Number of Pages</label>
+                <input id="numPages" class="form-control" name="numPages" />
+              </div>
+
+              <!-- Submit the form -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our JS file -->
+    <script src="book-list.js"></script>
+  </body>
+</html>
