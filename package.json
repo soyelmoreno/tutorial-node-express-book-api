@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "bookapi"
+    "url": "api-book"
   },
   "author": "Carlos Moreno",
   "license": "ISC",
@@ -16,6 +16,8 @@
     "prettier": "2.2.1"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   }
 }
