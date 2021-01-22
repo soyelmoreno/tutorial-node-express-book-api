@@ -1,6 +1,6 @@
 /** Opens the book edit modal */
 const setEditModal = (isbn) => {
-  // code goes here
+  console.log(`Ready to edit ${isbn}`);
 };
 
 /** Deletes a book */
@@ -12,7 +12,7 @@ const deleteBook = (isbn) => {
 const loadBooks = () => {
   // Create an AJAX object, send a GET request to the books endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', 'http://localhost:3000/api/books', false);
+  xhttp.open('GET', 'http://localhost:3000/api/book', false);
   xhttp.send();
   // Parse the response.
   const books = JSON.parse(xhttp.responseText);

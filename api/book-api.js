@@ -44,8 +44,42 @@ app.post('/api/book', (req, res) => {
 });
 
 // Create a GET endpoint to retrieve all the books from the API
-app.get('/api/books', (req, res) => {
+app.get('/api/book', (req, res) => {
   res.json(books);
+});
+
+/*
+Here, we're introduced to parametrized URLs. Since the ISBN depends on the book,
+there's potentially an infinite number of endpoints here. By adding a colon (:)
+to the path, we can define a variable, mapped to the variable isbn. So, if a
+user visits localhost:3000/book/5 the isbn parameter will be 5.
+
+You can accept more than one parameter in your URL if it makes sense in your
+scenario. For example /image/:width/:height, and then you can get those
+parameters using req.params.width and req.params.height.
+*/
+
+// Create a GET endpoint with a parameterized URL to retrieve a specific book
+app.get('/api/book/:isbn', (req, res) => {
+  // Read the ISBN from the URL
+  const isbn = req.params.isbn;
+
+  // Search books for this ISBN
+
+  // New way: use find() method
+  //const theBook = books.find((book) => book.isbn === isbn);
+  //res.json(theBook);
+
+  // The old way: loop through, return when we match
+  for (let book of books) {
+    if (book.isbn === isbn) {
+      res.json(book);
+      return;
+    }
+  }
+
+  // If we get to here, this specific book was not found. Send a 404
+  res.status(404).send('Book not found');
 });
 
 // Start our client
