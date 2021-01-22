@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a new book | api-book tutorial</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+      <h1>Create New Book</h1>
+      <hr />
+
+      <form action="http://localhost:3000/api/book" method="POST">
+        <div class="form-group">
+          <label for="ISBN">ISBN</label>
+          <input class="form-control" name="isbn" />
+        </div>
+
+        <div class="form-group">
+          <label for="Title">Title</label>
+          <input id="Title" class="form-control" name="title" />
+        </div>
+
+        <!-- Other fields go here -->
+        <div class="form-group">
+          <label for="Author">Author</label>
+          <input id="Author" class="form-control" name="author" />
+        </div>
+        <div class="form-group">
+          <label for="PubDate">Published Date</label>
+          <input id="PubDate" class="form-control" name="pubdate" />
+        </div>
+        <div class="form-group">
+          <label for="Publisher">Publisher</label>
+          <input id="Publisher" class="form-control" name="publisher" />
+        </div>
+        <div class="form-group">
+          <label for="NumPages">Number of Pages</label>
+          <input id="NumPages" class="form-control" name="numpages" />
+        </div>
+
+        <!-- Submit the form -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

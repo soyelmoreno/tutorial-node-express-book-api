@@ -12,6 +12,9 @@ let books = [];
 // Tell the app to use CORS middleware
 app.use(cors());
 
+// Tell the app to serve static files from the /public directory
+app.use(express.static('public'));
+
 // We can configure body-parser by passing it to the app.use() method, which
 // enables it as middleware to the Express app instance.
 
@@ -32,7 +35,7 @@ information.
 */
 
 // Create a POST endpoint to add the book to the books array
-app.post('/book', (req, res) => {
+app.post('/api/book', (req, res) => {
   const book = req.body;
   // Output the book being added to the console for debugging
   console.log(book);
