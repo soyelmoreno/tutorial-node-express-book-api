@@ -1,0 +1,21 @@
+{
+  "name": "api-book",
+  "version": "1.0.0",
+  "description": "Building a REST API to manage books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "bookapi"
+  },
+  "author": "Carlos Moreno",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
