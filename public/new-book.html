@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create a new book | API-Book</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     />
+    <title>Create a new book | API-Book</title>
   </head>
   <body>
     <div class="container">
@@ -31,7 +38,7 @@
         </div>
         <div class="form-group">
           <label for="pubDate">Published Date</label>
-          <input id="pubDate" class="form-control" name="pubDate" />
+          <input id="pubDate" class="form-control" name="pubdate" />
         </div>
         <div class="form-group">
           <label for="publisher">Publisher</label>
@@ -39,12 +46,20 @@
         </div>
         <div class="form-group">
           <label for="numPages">Number of Pages</label>
-          <input id="numPages" class="form-control" name="numPages" />
+          <input id="numPages" class="form-control" name="numpages" />
         </div>
 
         <!-- Submit the form -->
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
+      <!-- Back to Home link -->
+      <p class="mt-4">
+        <a href="/">
+          <span style="font-weight: bold">⇠</span>
+          Back to Home
+        </a>
+      </p>
     </div>
   </body>
 </html>

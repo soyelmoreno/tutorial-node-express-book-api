@@ -55,12 +55,12 @@ easily retrieve the information from the form - in our case, a book's
 information.
 */
 
-// Create a POST endpoint to add the book to the books array
+// Create a POST endpoint to add a new book to the books array
 app.post('/api/book', (req, res) => {
-  const book = req.body;
-  // Output the book being added to the console for debugging
-  console.log(book);
-  books.push(book);
+  const newBook = req.body;
+  // We can output the book being added to the console for debugging
+  // console.log(newBook);
+  books.push(newBook);
   res.send('Book was added to the database.');
 });
 
@@ -124,6 +124,28 @@ app.delete('/api/book/:isbn', (req, res) => {
 
   // Respond with a message that the book was deleted
   res.send('Book is deleted');
+});
+
+// Create a POST endpoint for updating a specific book
+app.post('/api/book/:isbn', (req, res) => {
+  // Read the ISBN from the URL
+  const isbn = req.params.isbn;
+  const newBook = req.body;
+
+  // Find the specific existing book
+  const book = getBook(isbn);
+  if (!book) {
+    res.status(404);
+    res.end();
+    return;
+  }
+  // The desired book exists. Find the index of the book
+  const i = books.findIndex((b) => b.isbn === isbn);
+  // Replace the old book with the new book
+  books[i] = newBook;
+
+  // Respond with a message
+  res.send('Book is edited');
 });
 
 // Start our client

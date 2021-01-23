@@ -1,12 +1,34 @@
+// Website root
+const root = 'http://localhost:3000';
+
 /** Opens the book edit modal */
 const setEditModal = (isbn) => {
-  console.log(`Ready to edit ${isbn}`);
+  // Create an AJAX object, send a GET request to the book endpoint
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('GET', `${root}/api/book/${isbn}`, false);
+  xhttp.send();
+  // Parse the response
+  const book = JSON.parse(xhttp.responseText);
+
+  // Grab variables from the book
+  const { title, author, publisher, pubdate, numpages } = book;
+
+  // Fill in information about the book in the form inside the modal
+  document.getElementById('isbn').value = isbn;
+  document.getElementById('title').value = title;
+  document.getElementById('author').value = author;
+  document.getElementById('publisher').value = publisher;
+  document.getElementById('pubDate').value = pubdate;
+  document.getElementById('numPages').value = numpages;
+
+  // Set up the action url for the book
+  document.getElementById('editForm').action = `${root}/api/book/${isbn}`;
 };
 
 /** Deletes a book */
 const deleteBook = (isbn) => {
   const xhttp = new XMLHttpRequest();
-  xhttp.open('DELETE', `http://localhost:3000/api/book/${isbn}`, false);
+  xhttp.open('DELETE', `${root}/api/book/${isbn}`, false);
   xhttp.send();
 
   // Reloading the page
@@ -15,11 +37,11 @@ const deleteBook = (isbn) => {
 
 /** Load existing books */
 const loadBooks = () => {
-  // Create an AJAX object, send a GET request to the books endpoint
+  // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', 'http://localhost:3000/api/book', false);
+  xhttp.open('GET', `${root}/api/book`, false);
   xhttp.send();
-  // Parse the response.
+  // Parse the response
   const books = JSON.parse(xhttp.responseText);
   // Grab the books element
   let booksEl = document.getElementById('books');
@@ -34,7 +56,7 @@ const loadBooks = () => {
 
             <div>Author: ${book.author}</div>
             <div>Publisher: ${book.publisher}</div>
-            <div>Number of Pages: ${book.numPages}</div>
+            <div>Number of Pages: ${book.numpages}</div>
 
             <hr>
 
