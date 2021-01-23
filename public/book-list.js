@@ -5,7 +5,7 @@ const setEditModal = (isbn) => {
 
 /** Deletes a book */
 const deleteBook = (isbn) => {
-  // code goes here
+  console.log(`Ready to delete ${isbn}`);
 };
 
 /** Load existing books */

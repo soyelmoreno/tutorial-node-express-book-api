@@ -7,7 +7,28 @@ const app = express();
 const port = 3000;
 
 // Where we will keep books, simulating a database
-let books = [];
+// let books = [];
+let books = [
+  {
+    isbn: '234234',
+    title: 'Wow it is a book',
+    author: 'Carlos Moreno',
+    pubdate: '2/25/2004',
+    publisher: 'Carlos Industries',
+    numpages: '345'
+  },
+  {
+    isbn: '992888999',
+    title: 'Getting the most out of life',
+    author: 'Bucky Bananas',
+    pubdate: '9/18/1978',
+    publisher: 'Amazing pubs',
+    numpages: '98'
+  }
+];
+
+// Function to find the book with the given id in the array of books
+const getBook = (isbn) => books.find((b) => b.isbn === isbn);
 
 // Tell the app to use CORS middleware
 app.use(cors());
@@ -64,22 +85,45 @@ app.get('/api/book/:isbn', (req, res) => {
   // Read the ISBN from the URL
   const isbn = req.params.isbn;
 
-  // Search books for this ISBN
+  // Search books for this specific book
+  const book = getBook(isbn);
 
-  // New way: use find() method
-  //const theBook = books.find((book) => book.isbn === isbn);
-  //res.json(theBook);
-
-  // The old way: loop through, return when we match
-  for (let book of books) {
-    if (book.isbn === isbn) {
-      res.json(book);
-      return;
-    }
+  // If book doesn't exist, respond with a 404
+  if (!book) {
+    res.status(404);
+    res.send('Book not found');
+    return;
   }
 
-  // If we get to here, this specific book was not found. Send a 404
-  res.status(404).send('Book not found');
+  // If we get here, this specific book exists. Respond with it
+  res.json(book);
+});
+
+// Create a DELETE endpoint to delete a specific book
+app.delete('/api/book/:isbn', (req, res) => {
+  // Read the ISBN from the URL
+  const isbn = req.params.isbn;
+
+  // Find the specific book
+  const book = getBook(isbn);
+
+  // If book doesn't exist, respond with a 404
+  if (!book) {
+    res.status(404);
+    res.send('Book not found');
+    return;
+  }
+
+  // Book exists. Remove it from the books array
+  books.filter((i) => {
+    if (i.isbn !== isbn) {
+      return true;
+    }
+    return false;
+  });
+
+  // Respond with a message that the book was deleted
+  res.send('Book is deleted');
 });
 
 // Start our client
