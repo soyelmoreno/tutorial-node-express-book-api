@@ -5,7 +5,12 @@ const setEditModal = (isbn) => {
 
 /** Deletes a book */
 const deleteBook = (isbn) => {
-  console.log(`Ready to delete ${isbn}`);
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('DELETE', `http://localhost:3000/api/book/${isbn}`, false);
+  xhttp.send();
+
+  // Reloading the page
+  location.reload();
 };
 
 /** Load existing books */
@@ -33,7 +38,12 @@ const loadBooks = () => {
 
             <hr>
 
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onClick="deleteBook(${book.isbn})">
+              Delete
+            </button>
             <button
               type="button"
               class="btn btn-primary float-right"

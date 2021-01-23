@@ -115,8 +115,8 @@ app.delete('/api/book/:isbn', (req, res) => {
   }
 
   // Book exists. Remove it from the books array
-  books.filter((i) => {
-    if (i.isbn !== isbn) {
+  books = books.filter((b) => {
+    if (b.isbn !== isbn) {
       return true;
     }
     return false;
