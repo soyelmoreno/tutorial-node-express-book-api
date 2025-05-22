@@ -3,8 +3,20 @@
 Following along with the tutorial here:
 https://stackabuse.com/building-a-rest-api-with-node-and-express/
 
-Small dataset, with correctly escaped double-quotes, is here:
+A small book dataset, with correctly escaped double-quotes, is here:
 https://gist.github.com/sanket143/5346f04575851a5228b8c5c1e99496af
 
-Larger dataset here:
+A larger book dataset is here:
 https://github.com/benoitvallon/100-best-books/blob/master/books.json
+
+Both are copied into this repo:
+* [books.json](https://github.com/soyelmoreno/tutorial-node-express-book-api/blob/97a09e6b3bea980e4844b7a22c6bda640f209c6a/data/books.json) (small)
+* [books2.json](https://github.com/soyelmoreno/tutorial-node-express-book-api/blob/97a09e6b3bea980e4844b7a22c6bda640f209c6a/data/books2.json) (large)
+
+# Get started
+
+Clone the repo and then run:
+
+```
+npm install
+```
