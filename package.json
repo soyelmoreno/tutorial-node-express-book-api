@@ -1,19 +1,19 @@
 {
-  "name": "api-book",
+  "name": "tutorial-node-express-book-api",
   "version": "1.0.0",
-  "description": "Building a REST API to manage books",
+  "description": "Tutorial: Build a REST API for managing books using Node and Express",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "api-book"
+    "url": "tutorial-node-express-book-api"
   },
   "author": "Carlos Moreno",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "2.2.1"
+    "prettier": "3.5.3"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
