@@ -1,11 +1,8 @@
-// Website root
-const root = 'http://localhost:3010';
-
 /** Opens the book edit modal */
 const setEditModal = (isbn) => {
   // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `${root}/api/book/${isbn}`, false);
+  xhttp.open('GET', `/api/book/${isbn}`, false);
   xhttp.send();
   // Parse the response
   const book = JSON.parse(xhttp.responseText);
@@ -22,13 +19,13 @@ const setEditModal = (isbn) => {
   document.getElementById('numPages').value = numpages;
 
   // Set up the action url for the book
-  document.getElementById('editForm').action = `${root}/api/book/${isbn}`;
+  document.getElementById('editForm').action = `/api/book/${isbn}`;
 };
 
 /** Deletes a book */
 const deleteBook = (isbn) => {
   const xhttp = new XMLHttpRequest();
-  xhttp.open('DELETE', `${root}/api/book/${isbn}`, false);
+  xhttp.open('DELETE', `/api/book/${isbn}`, false);
   xhttp.send();
 
   // Reloading the page
@@ -39,7 +36,7 @@ const deleteBook = (isbn) => {
 const loadBooks = () => {
   // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `${root}/api/book`, false);
+  xhttp.open('GET', `/api/book`, false);
   xhttp.send();
   // Parse the response
   const books = JSON.parse(xhttp.responseText);
