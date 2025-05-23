@@ -59,7 +59,7 @@ information.
 */
 
 // Create a POST endpoint to add a new book to the books array
-app.post('/api/book', (req, res) => {
+app.post('/api/books', (req, res) => {
   const newBook = req.body;
   // We can output the book being added to the console for debugging
   // console.log(newBook);
@@ -68,7 +68,7 @@ app.post('/api/book', (req, res) => {
 });
 
 // Create a GET endpoint to retrieve all the books from the API
-app.get('/api/book', (req, res) => {
+app.get('/api/books', (req, res) => {
   res.json(books);
 });
 
@@ -76,7 +76,7 @@ app.get('/api/book', (req, res) => {
 Here, we're introduced to parameterized URLs. Since the ISBN depends on the
 book, there's potentially an infinite number of endpoints here. By adding a
 colon (:) to the path, we can define a variable, mapped to the variable isbn.
-So, if a user visits localhost:3000/book/5 the isbn parameter will be 5.
+So, if a user visits localhost:3000/books/5 the isbn parameter will be 5.
 
 You can accept more than one parameter in your URL if it makes sense in your
 scenario. For example /image/:width/:height, and then you can get those
@@ -84,7 +84,7 @@ parameters using req.params.width and req.params.height.
 */
 
 // Create a GET endpoint with a parameterized URL to retrieve a specific book
-app.get('/api/book/:isbn', (req, res) => {
+app.get('/api/books/:isbn', (req, res) => {
   // Read the ISBN from the URL
   const isbn = req.params.isbn;
 
@@ -103,7 +103,7 @@ app.get('/api/book/:isbn', (req, res) => {
 });
 
 // Create a DELETE endpoint to delete a specific book
-app.delete('/api/book/:isbn', (req, res) => {
+app.delete('/api/books/:isbn', (req, res) => {
   // Read the ISBN from the URL
   const isbn = req.params.isbn;
 
@@ -130,7 +130,7 @@ app.delete('/api/book/:isbn', (req, res) => {
 });
 
 // Create a POST endpoint for updating a specific book
-app.post('/api/book/:isbn', (req, res) => {
+app.post('/api/books/:isbn', (req, res) => {
   // Read the ISBN from the URL
   const isbn = req.params.isbn;
   const newBook = req.body;

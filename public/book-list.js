@@ -2,7 +2,7 @@
 const setEditModal = (isbn) => {
   // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `/api/book/${isbn}`, false);
+  xhttp.open('GET', `/api/books/${isbn}`, false);
   xhttp.send();
   // Parse the response
   const book = JSON.parse(xhttp.responseText);
@@ -19,13 +19,13 @@ const setEditModal = (isbn) => {
   document.getElementById('numPages').value = numpages;
 
   // Set up the action url for the book
-  document.getElementById('editForm').action = `/api/book/${isbn}`;
+  document.getElementById('editForm').action = `/api/books/${isbn}`;
 };
 
 /** Deletes a book */
 function deleteBook(isbn) {
   const xhttp = new XMLHttpRequest();
-  xhttp.open('DELETE', `/api/book/${isbn}`, false);
+  xhttp.open('DELETE', `/api/books/${isbn}`, false);
   xhttp.send();
 
   // Reloading the page
@@ -36,7 +36,7 @@ function deleteBook(isbn) {
 function loadBooks() {
   // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
-  xhttp.open('GET', `/api/book`, false);
+  xhttp.open('GET', `/api/books`, false);
   xhttp.send();
   // Parse the response
   const books = JSON.parse(xhttp.responseText);
