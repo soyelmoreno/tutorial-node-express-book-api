@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "index": "node index.js"
+    "index": "node index.js",
+    "hello": "node api/hello-world.js",
+    "book": "node api/book-api.js"
   },
   "repository": {
     "type": "git",

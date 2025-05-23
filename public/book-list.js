@@ -1,5 +1,5 @@
 // Website root
-const root = 'http://localhost:3000';
+const root = 'http://localhost:3010';
 
 /** Opens the book edit modal */
 const setEditModal = (isbn) => {

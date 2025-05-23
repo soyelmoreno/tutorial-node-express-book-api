@@ -4,10 +4,9 @@ const cors = require('cors');
 
 // Create the Express app, and set the port
 const app = express();
-const port = 3000;
+const port = 3010;
 
 // Where we will keep books, simulating a database
-// let books = [];
 let books = [
   {
     isbn: '234234',
@@ -28,7 +27,9 @@ let books = [
 ];
 
 // Function to find the book with the given id in the array of books
-const getBook = (isbn) => books.find((b) => b.isbn === isbn);
+function getBook(isbn) {
+  return books.find((b) => b.isbn === isbn);
+}
 
 // Tell the app to use CORS middleware
 app.use(cors());
@@ -39,7 +40,8 @@ app.use(express.static('public'));
 // We can configure body-parser by passing it to the app.use() method, which
 // enables it as middleware to the Express app instance.
 
-// Configuring body parser middleware
+// Configuring body parser middleware by passing it to the app.use method, which
+// enables it as middleware to the Express app instance.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
