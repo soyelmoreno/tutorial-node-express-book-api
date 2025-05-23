@@ -23,17 +23,17 @@ const setEditModal = (isbn) => {
 };
 
 /** Deletes a book */
-const deleteBook = (isbn) => {
+function deleteBook(isbn) {
   const xhttp = new XMLHttpRequest();
   xhttp.open('DELETE', `/api/book/${isbn}`, false);
   xhttp.send();
 
   // Reloading the page
   location.reload();
-};
+}
 
 /** Load existing books */
-const loadBooks = () => {
+function loadBooks() {
   // Create an AJAX object, send a GET request to the book endpoint
   const xhttp = new XMLHttpRequest();
   xhttp.open('GET', `/api/book`, false);
@@ -78,6 +78,6 @@ const loadBooks = () => {
     // Add the newly generated card
     booksEl.innerHTML = booksEl.innerHTML + card;
   }
-};
+}
 
 loadBooks();

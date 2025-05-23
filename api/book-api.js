@@ -73,10 +73,10 @@ app.get('/api/book', (req, res) => {
 });
 
 /*
-Here, we're introduced to parametrized URLs. Since the ISBN depends on the book,
-there's potentially an infinite number of endpoints here. By adding a colon (:)
-to the path, we can define a variable, mapped to the variable isbn. So, if a
-user visits localhost:3000/book/5 the isbn parameter will be 5.
+Here, we're introduced to parameterized URLs. Since the ISBN depends on the
+book, there's potentially an infinite number of endpoints here. By adding a
+colon (:) to the path, we can define a variable, mapped to the variable isbn.
+So, if a user visits localhost:3000/book/5 the isbn parameter will be 5.
 
 You can accept more than one parameter in your URL if it makes sense in your
 scenario. For example /image/:width/:height, and then you can get those
