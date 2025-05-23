@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 // Create the Express app, and set the port
 const app = express();
-const port = 3010;
+const port = process.env.PORT;
 
 // Where we will keep books, simulating a database
 let books = [
